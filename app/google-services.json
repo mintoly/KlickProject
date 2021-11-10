@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "871862260809",
+    "project_id": "klicker-ccdd8",
+    "storage_bucket": "klicker-ccdd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871862260809:android:326103ebc4eaadb2f1db98",
+        "android_client_info": {
+          "package_name": "com.example.KlickApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871862260809-rfg4hdvqbsm00gebiihr41unpve4vqi7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKWGrPcwc26cwRtwvUo_jm8PrM9jzrTrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871862260809-rfg4hdvqbsm00gebiihr41unpve4vqi7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.KlickApp;
 
 import android.content.Context;
 
