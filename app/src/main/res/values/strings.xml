@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">KlickApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -8,4 +8,31 @@
     <string name="input_ur_id_and_password">Input ur ID and Password</string>
     <string name="create">Create</string>
     <string name="ok">OK</string>
+    <string name="home">THisishome</string>
+    <string name="notifications">thisisnotice</string>
+    <string name="user">thisisuser</string>
+    <string name="user_to_seller_button">Are you the seller?</string>
+    <string name="seller_to_user_button">Are you the travler?</string>
+    <string name="test1">test1</string>
+    <string name="test2">test2</string>
+    <string name="test3">test3</string>
+    <string name="store_type_food">food</string>
+    <string name="store_type_food_button">Food</string>
+    <string name="store_type_movie">movie</string>
+    <string name="store_type_movie_button">Movie &amp; Hall</string>
+    <string name="store_type_stay">stay</string>
+    <string name="store_type_stay_button">Accommodation</string>
+    <string name="userlogin_change_pd">Forgot your password?</string>
+    <string name="register_inst_img">Input your icon</string>
+    <string name="register_inst_name">What is your name?</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="user_change_pd">change password</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
