@@ -9,7 +9,7 @@
         android:id="@+id/text_login_inst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/input_ur_id_and_password"
+        android:text="@string/input_ur_email_and_password"
         app:layout_constraintBottom_toTopOf="@+id/edit_pd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

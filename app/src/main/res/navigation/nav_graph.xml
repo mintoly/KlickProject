@@ -3,26 +3,52 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/register_id">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.KlickApp.auth.User.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_register_first">
+        android:id="@+id/register_id"
+        android:name="com.example.KlickApp.auth.User.EmailFragment"
+        android:label="@string/email_fragment_label"
+        tools:layout="@layout/fragment_register_email">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_register_id_to_ver"
+            app:destination="@id/register_img"/>
+
+    </fragment>
+
+    <!--
+    <fragment
+        android:id="@+id/register_id_ver"
+        android:name="com.example.KlickApp.auth.User.EmailVerifyFragment"
+        android:label="@string/email_verify_fragment_label"
+        tools:layout="@layout/fragment_register_email_verify">
+
+        <action
+            android:id="@+id/action_register_ver_to_img"
+            app:destination="@+id/register_img"/>
+        <action
+            android:id="@+id/action_register_ver_to_id"
+            app:destination="@+id/register_id"/>
+    </fragment>-->
+    <fragment
+        android:id="@+id/register_img"
+        android:name="com.example.KlickApp.auth.User.ImageFragment"
+        android:label="@string/img_fragment_label"
+        tools:layout="@layout/fragment_register_img">
+
+        <action
+            android:id="@+id/action_register_img_to_name"
+            app:destination="@id/register_name" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.KlickApp.auth.User.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_register_second">
+        android:id="@+id/register_name"
+        android:name="com.example.KlickApp.auth.User.NameFragment"
+        android:label="@string/name_fragment_label"
+        tools:layout="@layout/fragment_register_name">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_register_name_to_img"
+            app:destination="@id/register_img" />
     </fragment>
 </navigation>

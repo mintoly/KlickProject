@@ -1,23 +1,13 @@
 package com.example.KlickApp.auth;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
-
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviderKt;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,21 +16,20 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.KlickApp.databinding.ActivityRegisterBinding;
 
 import com.example.KlickApp.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-
-import static android.content.ContentValues.TAG;
-import static com.example.KlickApp.auth.User.FirstFragment.REQUEST_CODE;
 
 public class UserRegisterActivity extends AppCompatActivity {
     //TODO: 필요 구간 명확히 해서 다시 짤것
     private AppBarConfiguration appBarConfiguration;
     private ActivityRegisterBinding binding;
+    private RegisterViewModel registerViewModel;
+
+    class RegisterViewModel extends ViewModel{
+        private String email;
+        private String pd;
+        private Uri uri;
+        private String name;
+
+    }
 
 
     @Override

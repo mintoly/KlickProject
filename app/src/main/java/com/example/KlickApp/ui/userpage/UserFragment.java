@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,15 +60,25 @@ public class UserFragment extends Fragment {
         });
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        if (user.isEmailVerified()) {
+            binding.btnEmailVerify.setVisibility(View.INVISIBLE);
+        } else {
+            binding.btnEmailVerify.setOnClickListener(v -> {
+                user.sendEmailVerification();
+                Toast.makeText(getContext(), "이메일을 재전송했습니다. 메일함을 확인해주세요.", Toast.LENGTH_LONG).show();
+            });
+        }
         //TODO:  imageuri 고치기
         binding.textEmail.setText(user.getEmail());
         if (user.getDisplayName() == null) binding.textName.setText("공백");
         else binding.textName.setText(user.getDisplayName());
 
-        Glide.with(getContext())
-                .load(user.getPhotoUrl())
-                .override(400,400)
-                .into(binding.imgUser);
+        if (user.getPhotoUrl() != null) {
+            Glide.with(getContext())
+                    .load(user.getPhotoUrl())
+                    .override(400, 400)
+                    .into(binding.imgUser);
+        }
     }
 
     @Override

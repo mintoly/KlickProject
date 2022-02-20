@@ -7,19 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentResultListener;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.KlickApp.MainActivity;
 import com.example.KlickApp.R;
-import com.example.KlickApp.auth.UserRegisterActivity;
-import com.example.KlickApp.databinding.FragmentRegisterSecondBinding;
+import com.example.KlickApp.databinding.FragmentRegisterNameBinding;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -27,15 +23,13 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.InputStream;
 
 import static android.content.ContentValues.TAG;
 
-public class SecondFragment extends Fragment {
+public class NameFragment extends Fragment {
 
-    private FragmentRegisterSecondBinding binding;
+    private FragmentRegisterNameBinding binding;
     private FirebaseUser user;
     private Uri uri;
 
@@ -45,7 +39,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentRegisterSecondBinding.inflate(inflater, container, false);
+        binding = FragmentRegisterNameBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -56,8 +50,8 @@ public class SecondFragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                NavHostFragment.findNavController(NameFragment.this)
+                        .navigate(R.id.action_register_name_to_img);
             }
         });
         binding.buttonEnd.setOnClickListener((view1)->{
@@ -106,8 +100,6 @@ public class SecondFragment extends Fragment {
                                             .addOnCompleteListener((task1 -> {
                                                 if (task1.isSuccessful()) {
 
-                                                    Toast.makeText(getContext(), "환영합니다.", Toast.LENGTH_SHORT).show();
-                                                    startActivity(new Intent(view1.getContext(), MainActivity.class));
                                                     getActivity().finish();
                                                 } else {
                                                     Log.d(TAG, "프로필 업뎃 실패 " + task1.getException().toString());
@@ -123,7 +115,8 @@ public class SecondFragment extends Fragment {
                     Log.d(TAG, "uri 가져오는 중 실패 " + e.toString() + " uri: " + uri);
                 }
 
-
+                Toast.makeText(getContext(), "환영합니다.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(view1.getContext(), MainActivity.class));
             }
         });
     }

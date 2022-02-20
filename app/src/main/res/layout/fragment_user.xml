@@ -33,23 +33,46 @@
     </ImageView>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_name"
-            android:text="@string/home"/>
+            android:id="@+id/text_level"
+            android:text="level"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/text_email"
-            android:text="@string/app_name"/>
+            android:id="@+id/text_name"
+            android:text="name"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_email"
+                android:text="email"/>
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:insetTop="1dp"
+                android:insetBottom="1dp"
+                android:id="@+id/btn_email_verify"
+                android:text="@string/user_verify"
+                android:textSize="7dp"/>
+
+        </LinearLayout>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btm_change_pd"
+            android:id="@+id/btn_change_pd"
             android:text="@string/user_change_pd"/>
     </LinearLayout>
 

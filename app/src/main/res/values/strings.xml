@@ -5,7 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_user">User</string>
     <string name="title_event">Event</string>
-    <string name="input_ur_id_and_password">Input ur ID and Password</string>
+    <string name="input_ur_email_and_password">Input ur email and Password</string>
     <string name="create">Create</string>
     <string name="ok">OK</string>
     <string name="home">THisishome</string>
@@ -22,17 +22,49 @@
     <string name="store_type_movie_button">Movie &amp; Hall</string>
     <string name="store_type_stay">stay</string>
     <string name="store_type_stay_button">Accommodation</string>
+    <string name="store_type_bar_button">Bar</string>
+    <string name="store_type_cafe_button">Cafe</string>
     <string name="userlogin_change_pd">Forgot your password?</string>
-    <string name="register_inst_img">Input your icon</string>
-    <string name="register_inst_name">What is your name?</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_menu">menu</string>
     <string name="user_change_pd">change password</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+
+    <!-- Strings used for Register fragments for navigation -->
+    <string name="img_fragment_label">Image Fragment</string>
+    <string name="name_fragment_label">Name Fragment</string>
+    <string name="email_fragment_label">Email Fragment</string>
+    <string name="email_verify_fragment_label">Email Verify Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="title_more">more</string>
+    <string name="register_inst_img">Input your icon</string>
+    <string name="register_inst_name">What is your name?</string>
+    <string name="register_inst_email">Input your email</string>
+    <string name="register_inst_email_verifing">Verify email to check your mailbox</string>
+    <string name="register_inst_email_verify_resend">You haven\'t got mail?</string>
+
+    <!-- Strings for Main Alert-->
+    <string name="alert_context_location">"Allow to use location info.</string>
+    <string name="alert_btn_location_pos">Go</string>
+    <string name="alert_btn_location_neg">Cancle</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- Strings for users-->
+    <string name="user_verify">Send verifing mail</string>
+    <string name="review_write">leave review</string>
+
+    <!-- Strings for variout thing-->
+    <string name="rating">Rating</string>
+    <string name="total_costs">Total cost</string>
+
+    <string name="confirm">Confirm</string>
+
+    <string name="store_btn_liked">like</string>
+    <string name="store_btn_share">share</string>
+    <string name="store_seller_pick">Seller\'s Pick</string>
+    <string name="store_Klick_pick">Klick\'s Pick</string>
+    <string name="title_review">Review</string>
+
 </resources>

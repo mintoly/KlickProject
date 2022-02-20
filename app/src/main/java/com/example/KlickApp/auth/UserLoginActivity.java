@@ -56,9 +56,10 @@ public class UserLoginActivity extends AppCompatActivity{
         });
         binding.btnCreate.setOnClickListener((onClickListener)->{
                 Log.d(TAG, "Create버튼 클릭");
-                /*Intent intent = new Intent(this, UserRegisterActivity.class);
-                startActivity(intent);*/
+                Intent intent = new Intent(this, UserRegisterActivity.class);
+                startActivity(intent);
 
+                /*
                 email = binding.editId.getText().toString().trim();
                 password = binding.editPd.getText().toString().trim();
                 if (email.length() == 0) {
@@ -68,7 +69,7 @@ public class UserLoginActivity extends AppCompatActivity{
                     Toast.makeText(UserLoginActivity.this, "비밀번호 입력하기", Toast.LENGTH_LONG).show();
                 } else {
                     createAccount();
-                }
+                }*/
         });
 
         binding.textChangePd.setOnClickListener((onClickListner)->{
@@ -160,20 +161,15 @@ public class UserLoginActivity extends AppCompatActivity{
                 .addOnCompleteListener(task -> {
                     if(task.isSuccessful()) {
                         mUser = mAuth.getCurrentUser();
-                        if (mUser.isEmailVerified()) {
-                            Log.w(TAG, "로그인성공", task.getException());
-                            Toast.makeText(UserLoginActivity.this, "로그인성공", Toast.LENGTH_LONG).show();
-                            if (task.getResult().getUser().getPhotoUrl() == null) {
+                        Log.w(TAG, "로그인성공", task.getException());
+                        Toast.makeText(UserLoginActivity.this, "로그인성공", Toast.LENGTH_LONG).show();
+                        // Register 새로 만들어서 필요없음
+                            /*if (task.getResult().getUser().getPhotoUrl() == null) {
                                 startActivity(new Intent(this, UserRegisterActivity.class));
-                            } else {
-                                startActivity(new Intent(this, MainActivity.class));
-                            }
-                            finish();
-                        } else {
-                            Log.w(TAG, "이메일인증필요");
-                            Toast.makeText(UserLoginActivity.this, "이메일을 인증해주세요", Toast.LENGTH_SHORT).show();
-                        }
-
+                            } else {*/
+                        startActivity(new Intent(this, MainActivity.class));
+                        //}
+                        finish();
                     } else {
                         Log.w(TAG, "로그인실패", task.getException());
                         Toast.makeText(UserLoginActivity.this, "로그인실패", Toast.LENGTH_LONG).show();

@@ -6,7 +6,8 @@ public class ResultItem {
     private Drawable icon;
     private String title;
     private String content;
-    private String distance;
+    private String id;
+    private Double distance = 0.0;
 
     ResultItem(Drawable d, String t, String c) {
         this.setContent(c);
@@ -30,8 +31,12 @@ public class ResultItem {
         this.title = title;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -46,7 +51,9 @@ public class ResultItem {
         return content;
     }
 
-    public String getDistance() {
+    public Double getDistance() {
         return distance;
     }
+
+    public String getId() {return id;};
 }

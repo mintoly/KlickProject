@@ -1,44 +1,41 @@
 package com.example.KlickApp.auth.User;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.fragment.NavHostFragment;
+import android.content.Context;
 
 import com.bumptech.glide.Glide;
 import com.example.KlickApp.R;
-import com.example.KlickApp.databinding.FragmentRegisterFirstBinding;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.io.InputStream;
+import com.example.KlickApp.databinding.FragmentRegisterImgBinding;
+import com.example.KlickApp.ui.resultpage.ResultActivity;
+import com.google.android.gms.common.SignInButton;
 
 import static android.app.Activity.RESULT_OK;
-import static android.content.ContentValues.TAG;
 
-public class FirstFragment extends Fragment {
+public class ImageFragment extends Fragment {
 
     public static final int REQUEST_CODE = 0;
-    private FragmentRegisterFirstBinding binding;
+    private FragmentRegisterImgBinding binding;
     private Uri uri;
+    String[] permission_list = {
+            Manifest.permission.WRITE_CONTACTS
+    };
 
     @Override
     public View onCreateView(
@@ -46,7 +43,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentRegisterFirstBinding.inflate(inflater, container, false);
+        binding = FragmentRegisterImgBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -54,7 +51,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        binding.buttonEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (uri == null) {
@@ -64,17 +61,23 @@ public class FirstFragment extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putString("uri", uri.toString());
                     getParentFragmentManager().setFragmentResult("imageuri", bundle);
-                    NavHostFragment.findNavController(FirstFragment.this)
-                            .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                    NavHostFragment.findNavController(ImageFragment.this)
+                            .navigate(R.id.action_register_img_to_name);
                 }
             }
         });
         binding.imgRegister.setOnClickListener((view1)->{
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            launcher.launch(intent);
-
+            if ( Build.VERSION.SDK_INT >= 23 &&
+                    ContextCompat.checkSelfPermission( getActivity().getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE ) != PackageManager.PERMISSION_GRANTED ) {
+                ActivityCompat.requestPermissions( getActivity(), new String[] {
+                        Manifest.permission.READ_EXTERNAL_STORAGE
+                }, 0 );
+            } else {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                launcher.launch(intent);
+            }
         });
     }
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
