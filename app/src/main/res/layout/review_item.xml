@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_review"
         android:layout_marginLeft="15dp"
         android:id="@+id/text_review_contents"
-        android:text="ASDF"/>
+        android:text="CONTENT"/>
 
     <!-- TODO: comments
     <LinearLayout

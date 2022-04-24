@@ -1,37 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_margin="10dp"
+    android:layout_gravity="center"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:id="@+id/img_deal_store"/>
+            android:id="@+id/img_deal_store"
+            android:elevation="5dp"
+            android:background="@color/white"/>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_height="5dp"
+            android:layout_weight="1" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/confirm"
+            android:layout_weight="1"
+            android:text="title"
             android:id="@+id/text_deal_store"/>
         <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="5dp"
             android:layout_weight="1"/>
 
 
     </LinearLayout>
     <View
-        android:layout_width="10dp"
+        android:layout_width="15dp"
         android:layout_height="match_parent"/>
 
     <LinearLayout
@@ -45,9 +51,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="@string/test1"
+            android:textSize="17dp"
+            android:text="10.0%"
             android:id="@+id/text_deal_discount"/>
+
+        <TextView
+            android:id="@+id/text_deal_context"
+            android:layout_width="wrap_content"
+            android:text="성인 1인 12000원 -> 8400원"
+            android:layout_gravity="right"
+            android:layout_height="wrap_content"/>
 
             <!--
             <TextView
@@ -76,20 +89,22 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="20dp"/>
+            android:layout_height="10dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="@string/test1"
+            android:text="~2021.11.12"
+            android:textSize="10dp"
             android:id="@+id/text_deal_date"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:text="@string/test3"
-            android:id="@+id/text_deal_distance"/>
+            android:text="~12:00"
+            android:textSize="10dp"
+            android:id="@+id/text_deal_time"/>
 
     </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.KlickApp.R;
 import com.example.KlickApp.databinding.EventPageBinding;
@@ -34,8 +35,6 @@ public class EventActivity extends AppCompatActivity {
         binding = EventPageBinding.inflate(getLayoutInflater());
 
         bannerUrlList = new ArrayList<>();
-        adaptor = new EventAdaptor(bannerUrlList);
-        binding.viewEventPage.setAdapter(adaptor);
         db = FirebaseFirestore.getInstance();
         storage = FirebaseStorage.getInstance();
         db.collection("event")
@@ -47,8 +46,8 @@ public class EventActivity extends AppCompatActivity {
                             Log.d(TAG, snapshot.getData().toString());
                             Log.d(TAG, "The gs Link is : " + snapshot.getData().get("banner").toString());
                             StorageReference ref = storage.getReferenceFromUrl(snapshot.getData().get("banner").toString());
-                            adaptor.add(ref);
-
+                            bannerUrlList.add(ref);
+                            adaptor.notifyDataSetChanged();
                         }
                         Log.d(TAG, bannerUrlList.toString());
                     } else {
@@ -56,9 +55,12 @@ public class EventActivity extends AppCompatActivity {
                     }
                 });
 
+        adaptor = new EventAdaptor(bannerUrlList);
         Log.d(TAG, "bannerUri? : " + bannerUrlList.toString());
 
-        binding.viewEventPage.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView eventView = findViewById(R.id.view_event_page);
+        eventView.setAdapter(adaptor);
+        eventView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

@@ -35,7 +35,7 @@ public class EventAdaptor extends RecyclerView.Adapter<EventAdaptor.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        EventAdaptor.ViewHolder viewHolder = new EventAdaptor.ViewHolder(inflater.inflate(R.layout.event_banner_item, parent, false));
+        EventAdaptor.ViewHolder viewHolder = new EventAdaptor.ViewHolder(inflater.inflate(R.layout.event_item, parent, false));
         return viewHolder;
     }
 
@@ -47,7 +47,7 @@ public class EventAdaptor extends RecyclerView.Adapter<EventAdaptor.ViewHolder> 
                         Log.d(TAG, "Image link is : " + task.getResult().toString());
                         Glide.with(holder.itemView.getContext())
                                 .load(task.getResult())
-                                .override(384, 72)
+
                                 .fitCenter()
                                 .into(holder.banner);
                     } else {
@@ -67,7 +67,7 @@ public class EventAdaptor extends RecyclerView.Adapter<EventAdaptor.ViewHolder> 
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
-            banner = itemView.findViewById(R.id.image_event_banner);
+            banner = itemView.findViewById(R.id.image_event);
         }
     }
 

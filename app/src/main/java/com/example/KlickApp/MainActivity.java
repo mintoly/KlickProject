@@ -16,9 +16,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.KlickApp.sharedPreference.PreferenceManager;
 import com.example.KlickApp.ui.event.EventActivity;
 import com.example.KlickApp.ui.resultpage.GpsTracker.GpsTracker;
 import com.example.KlickApp.ui.resultpage.ResultActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.activity.result.ActivityResult;
@@ -67,10 +69,10 @@ public class MainActivity extends AppCompatActivity {
             //Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             //String type = "";
             switch (v.getId()) {
-                case R.id.testButton:
+                /*case R.id.testButton:
                     try {
                         //TODO: location service - Fix it
-                        /*Location l = gpsTracker.getLocation();
+                        Location l = gpsTracker.getLocation();
                         Toast.makeText(MainActivity.this, String.format("%f", l.getLatitude()), Toast.LENGTH_SHORT ).show();*/
 
                         //임시
@@ -97,13 +99,13 @@ public class MainActivity extends AppCompatActivity {
                                 })
                                 .addOnFailureListener(e -> {
                                     Log.d(TAG, "getfail" + e.toString());
-                                });*/
+                                });
                         //
 
                     } catch (NullPointerException e) {
                         Toast.makeText(MainActivity.this, "Please wait until the location identify. This will take a few minuets.", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, e.toString());
-                    }
+                    }*/
             }
             //intent.putExtra("type", type);
             //startActivity(intent);
@@ -124,17 +126,15 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_event, R.id.navigation_user)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         ButtonOnClickListner buttonOnClickListner = new ButtonOnClickListner();
 
-        binding.testButton.setOnClickListener(buttonOnClickListner);
+        //binding.testButton.setOnClickListener(buttonOnClickListner);
         binding.btnBottomEventProgress.setOnClickListener(v -> {
             startActivity(new Intent(MainActivity.this, EventActivity.class));
         });
-
-
 
 
     }
@@ -147,6 +147,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             getPermission();
         }
+        int reviewCount = PreferenceManager.getInt(this, "event_user");
+        binding.progressMainBottom.setProgress(reviewCount);
+
+
     }
 
     protected void onActivityResult(int requestCode, int resultCode, @Nullable @org.jetbrains.annotations.Nullable Intent data) {

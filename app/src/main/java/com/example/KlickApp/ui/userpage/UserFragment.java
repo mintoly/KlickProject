@@ -38,13 +38,13 @@ public class UserFragment extends Fragment {
         binding = FragmentUserBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textUserInst;
+        /*final TextView textView = binding.textUserInst;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        });*/
         return root;
     }
 

@@ -66,7 +66,7 @@ public class BannerAdaptor extends RecyclerView.Adapter<BannerAdaptor.ViewHolder
                         Log.d(TAG, "Image link is : " + task.getResult().toString());
                         Glide.with(itemView.getContext())
                                 .load(task.getResult())
-                                .override(384, 72)
+
                                 .fitCenter()
                                 .into(bannerItemBinding.imageEventBanner);
                     } else {

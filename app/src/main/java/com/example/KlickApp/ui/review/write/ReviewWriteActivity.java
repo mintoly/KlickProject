@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.KlickApp.databinding.ReviewWritePageBinding;
+import com.example.KlickApp.sharedPreference.PreferenceManager;
 import com.example.KlickApp.ui.review.ReviewItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
@@ -48,6 +49,10 @@ public class ReviewWriteActivity extends AppCompatActivity {
                                 .addOnCompleteListener(task -> {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(this, "Review confirmed!", Toast.LENGTH_LONG).show();
+                                        int currentEvent = PreferenceManager.getInt(this, "event_user");
+                                        if (currentEvent < 5) {
+                                            PreferenceManager.setInt(this, "event_user", +1);
+                                        }
                                         finish();
                                     } else {
                                         Log.d(TAG, "reviewwrite store adding error : " + task.getException());

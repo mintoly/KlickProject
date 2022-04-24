@@ -28,6 +28,7 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_menu">menu</string>
     <string name="user_change_pd">change password</string>
+    <string name="title_klicker">Klicker</string>
 
     <!-- Strings used for Register fragments for navigation -->
     <string name="img_fragment_label">Image Fragment</string>

@@ -16,6 +16,7 @@ import com.example.KlickApp.ui.home.event.BannerAdaptor;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class DealAdaptor extends RecyclerView.Adapter<DealAdaptor.ViewHolder>{
@@ -42,7 +43,7 @@ public class DealAdaptor extends RecyclerView.Adapter<DealAdaptor.ViewHolder>{
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
 
         holder.title.setText(dealItemList.get(position).getTitle());
-        holder.discount.setText(dealItemList.get(position).getDiscount().toString());
+        holder.discount.setText(String.format("%.1f%%", dealItemList.get(position).getDiscount()));
         holder.distance.setText(dealItemList.get(position).getDistance().toString());
 
         //TODO: DATE exchange
@@ -54,11 +55,12 @@ public class DealAdaptor extends RecyclerView.Adapter<DealAdaptor.ViewHolder>{
                             .into(holder.icon);
 
                 });
+        SimpleDateFormat format = new SimpleDateFormat("MM-dd");
+        holder.dealEnd.setText("~" + format.format(dealItemList.get(position).getDealEnd().toDate()));
 
-        holder.dealEnd.setText(dealItemList.get(position).getDealEnd().toString());
-
-
-
+        SimpleDateFormat format1 = new SimpleDateFormat("hh:mm");
+        holder.dealTime.setText( format1.format(dealItemList.get(position).getDealEnd().toDate()));
+        holder.distance.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -72,6 +74,7 @@ public class DealAdaptor extends RecyclerView.Adapter<DealAdaptor.ViewHolder>{
         TextView title;
         TextView discount;
         TextView dealEnd;
+        TextView dealTime;
         TextView distance;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
@@ -80,6 +83,7 @@ public class DealAdaptor extends RecyclerView.Adapter<DealAdaptor.ViewHolder>{
             title = itemView.findViewById(R.id.text_deal_store);
             discount = itemView.findViewById(R.id.text_deal_discount);
             dealEnd = itemView.findViewById(R.id.text_deal_date);
+            dealTime = itemView.findViewById(R.id.text_deal_time);
             distance = itemView.findViewById(R.id.text_deal_distance);
         }
     }

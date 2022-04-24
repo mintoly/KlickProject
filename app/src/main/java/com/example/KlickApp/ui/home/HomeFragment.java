@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         binding.btnFood.setOnClickListener(this);
         binding.btnMovie.setOnClickListener(this);
-        binding.btnStay.setOnClickListener(this);
+        //binding.btnStay.setOnClickListener(this);
 
         binding.viewSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -175,9 +175,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.btn_movie:
                 text = getString(R.string.store_type_movie);
                 break;
-            case R.id.btn_stay:
+            /*case R.id.btn_stay:
                 text = getString(R.string.store_type_stay);
-                break;
+                break;*/
 
         }
         intent.putExtra("type", text);

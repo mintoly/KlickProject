@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
         <!--TODO: 거리별 정렬 만들기-->
+
+
         <LinearLayout
             android:id="@+id/layout_result_search"
             android:layout_width="wrap_content"
@@ -24,11 +26,70 @@
 
         </LinearLayout>
 
+        <HorizontalScrollView
+            android:id="@+id/view_home_scroll_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_result_search">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                                <ImageButton
+                                    android:id="@+id/btn_food"
+                                    style="?android:attr/buttonBarButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_reading"/>
+                                <!--android:text="@string/store_type_food_button"-->
+
+                                <ImageButton
+                                    android:id="@+id/btn_bar"
+                                    style="?android:attr/buttonBarButtonStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_study"/>
+                                <!--android:text="@string/store_type_bar_button" -->
+
+
+                                <ImageButton
+                                    android:id="@+id/btn_movie"
+                                    style="?android:attr/buttonBarButtonStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_major_cafe"/>
+                                <!--android:text="@string/store_type_movie_button" -->
+
+                                <ImageButton
+                                    android:id="@+id/btn_cafe"
+                                    style="?android:attr/buttonBarButtonStyle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_local_cafe"/>
+                                <!--android:text="@string/store_type_cafe_button" -->
+
+
+
+
+
+                        <!--<ImageButton
+                            android:id="@+id/btn_stay"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_accommodation_black"/>-->
+                        <!--android:text="@string/store_type_stay_button" -->
+                </LinearLayout>
+        </HorizontalScrollView>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/view_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/result_item"
-            android:background="#C88B8B"
-            android:layout_below="@+id/layout_result_search"/>
+            android:background="@color/white"
+            android:padding="10dp"
+            android:layout_below="@+id/view_home_scroll_menu"/>
 </RelativeLayout>
